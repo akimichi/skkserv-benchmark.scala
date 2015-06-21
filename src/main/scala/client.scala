@@ -19,8 +19,10 @@ class Client(remoteAddress: InetSocketAddress) extends Actor with ActorLogging {
   // 受け取ったメッセージを処理する
   def receive = {
     case Connected(remote, local) =>
+	  val connection = sender
       log.info("{}に接続しました", remote)
-	  sender ! Write(ByteString("1a "))
+      connection ! Register(self)
+	  connection ! Write(ByteString("1a "))
     case CommandFailed(_) =>
       log.error("接続に失敗しました")
       context stop self
