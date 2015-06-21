@@ -34,8 +34,7 @@ object Build extends Build {
 						"scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"),
       libraryDependencies ++= Seq (
 		"com.typesafe.akka" %% "akka-actor" % "2.3.11",
-		// "com.typesafe.akka" % "akka-actor" % "2.0.4",
-		// "com.typesafe.akka" % "akka-testkit" % "2.0.4",
+		"com.typesafe.akka" %% "akka-testkit" % "2.3.11" % Test,
         // "joda-time" % "joda-time" % "2.0", //*1
         // "org.joda" % "joda-convert" % "1.1", //*2
         "junit" % "junit" % "4.10" % "test",

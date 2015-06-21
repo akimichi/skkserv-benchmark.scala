@@ -4,31 +4,26 @@ import org.scalatest.FunSuite
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{ FunSpec, BeforeAndAfterAll, BeforeAndAfterEach }
 
+import akka.actor._
+//import akka.actor.{Actor, ActorSystem, ActorLogging, Props}
+import akka.io.{ IO, Tcp }
+import akka.util.ByteString
+import java.net.InetSocketAddress
 
-/**
- * Specsの基本的な用法を示す
- *
- * c.f. http://www.scalatest.org/user_guide/using_matchers
- * 
- */
-class BasicUsageSpec extends FunSpec with org.scalatest.Matchers with BeforeAndAfterAll {
+class ClientSpec extends FunSpec with org.scalatest.Matchers with BeforeAndAfterAll {
+  import net.homeunix.akimichi.skkserv_benchmark.connection._
   
-  describe("Specsにて") {
-    it("should matcher を使う") {
-      1 should equal(1)
+  describe("client") {
+    it("ClientDriverを使う") {
+	  ClientDriver.connect("plato.local", 1178)
 	}
-  }
-  describe("should matcher の用法を確認する") {
-    describe("should matcher") {
-      it("equal"){
-        "hello" should equal{
-          "hello"
-        }
-      }
-      it("Greater and less than"){
-        1 should be > 0
-      }
-    }
+    // it("clientを使う") {
+	//   ConnectTCP.main(Array())
+    //   // val system = ActorSystem("MySystem")
+    //   // val remoteAddress = new InetSocketAddress("plato.local", 1178)
+    //   // // 新しいClientアクターをシステムに追加
+    //   // system.actorOf(Props(classOf[Client], remoteAddress))
+	// }
   }
 }
 
