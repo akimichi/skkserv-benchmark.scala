@@ -15,7 +15,7 @@ class ClientSpec extends FunSpec with org.scalatest.Matchers with BeforeAndAfter
   
   describe("client") {
     it("ClientDriverを使う") {
-	  ClientDriver.connect("plato.local", 1178)
+	  ClientDriver.connect("localhost", 1178)
 	}
     // it("clientを使う") {
 	//   ConnectTCP.main(Array())
